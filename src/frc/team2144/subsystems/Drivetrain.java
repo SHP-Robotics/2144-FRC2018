@@ -1,9 +1,11 @@
 package frc.team2144.subsystems;
 
 
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.MecanumDrive;
+import frc.team2144.RobotMap;
 import frc.team2144.commands.GatorDrive;
 
 
@@ -12,19 +14,21 @@ public class Drivetrain extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
     private Spark fl, fr, bl, br;
+    private Encoder flenc, frenc, blenc, brenc;
     private MecanumDrive drive;
 
     /**
-     * @param fl_port The PWM port the front left Spark is plugged into.
-     * @param fr_port The PWM port the front right Spark is plugged into.
-     * @param bl_port The PWM port the back left Spark is plugged into.
-     * @param br_port The PWM port the back right Spark is plugged into.
+     * Constructs a Drivetrain using port constants found in RobotMap.
      */
-    public Drivetrain(int fl_port, int fr_port, int bl_port, int br_port) {
-        fl = new Spark(fl_port);
-        fr = new Spark(fr_port);
-        bl = new Spark(bl_port);
-        br = new Spark(br_port);
+    public Drivetrain() {
+        fl = new Spark(RobotMap.fl_drive_port);
+        fr = new Spark(RobotMap.fr_drive_port);
+        bl = new Spark(RobotMap.bl_drive_port);
+        br = new Spark(RobotMap.br_drive_port);
+        flenc = new Encoder(RobotMap.fl_drive_enc_port_a, RobotMap.fl_drive_enc_port_b);
+        frenc = new Encoder(RobotMap.fr_drive_enc_port_a, RobotMap.fr_drive_enc_port_b);
+        blenc = new Encoder(RobotMap.bl_drive_enc_port_a, RobotMap.bl_drive_enc_port_b);
+        brenc = new Encoder(RobotMap.br_drive_enc_port_a, RobotMap.br_drive_enc_port_b);
         drive = new MecanumDrive(fl, bl, fr, br);
     }
 

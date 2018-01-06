@@ -14,7 +14,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.team2144.commands.ExampleCommand;
 import frc.team2144.subsystems.Drivetrain;
-import frc.team2144.subsystems.ExampleSubsystem;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -26,7 +25,7 @@ import frc.team2144.subsystems.ExampleSubsystem;
 // If you rename or move this class, update the build.properties file in the project root
 public class Robot extends TimedRobot {
 
-    public static final Drivetrain drivetrain = new Drivetrain(0, 1, 2, 3);
+    public static final Drivetrain drivetrain = new Drivetrain();
     public static OI oi;
 
     private Command autonomousCommand;
