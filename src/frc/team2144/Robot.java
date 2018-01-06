@@ -23,8 +23,7 @@ import frc.team2144.subsystems.ExampleSubsystem;
  * project.
  */
 // If you rename or move this class, update the build.properties file in the project root
-public class Robot extends TimedRobot 
-{
+public class Robot extends TimedRobot {
 
     public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
     public static OI oi;
@@ -37,8 +36,7 @@ public class Robot extends TimedRobot
      * used for any initialization code.
      */
     @Override
-    public void robotInit() 
-    {
+    public void robotInit() {
         oi = new OI();
         chooser.addDefault("Default Auto", new ExampleCommand());
         // chooser.addObject("My Auto", new MyAutoCommand());
@@ -51,14 +49,12 @@ public class Robot extends TimedRobot
      * the robot is disabled.
      */
     @Override
-    public void disabledInit() 
-    {
-        
+    public void disabledInit() {
+
     }
 
     @Override
-    public void disabledPeriodic() 
-    {
+    public void disabledPeriodic() {
         Scheduler.getInstance().run();
     }
 
@@ -68,14 +64,13 @@ public class Robot extends TimedRobot
      * chooser code works with the Java SmartDashboard. If you prefer the
      * LabVIEW Dashboard, remove all of the chooser code and uncomment the
      * getString code to get the auto name from the text box below the Gyro
-     *
+     * <p>
      * <p>You can add additional auto modes by adding additional commands to the
      * chooser code above (like the commented example) or additional comparisons
      * to the switch structure below with additional strings & commands.
      */
     @Override
-    public void autonomousInit() 
-    {
+    public void autonomousInit() {
         autonomousCommand = chooser.getSelected();
 
         /*
@@ -86,8 +81,7 @@ public class Robot extends TimedRobot
          */
 
         // schedule the autonomous command (example)
-        if (autonomousCommand != null) 
-        {
+        if (autonomousCommand != null) {
             autonomousCommand.start();
         }
     }
@@ -96,20 +90,17 @@ public class Robot extends TimedRobot
      * This function is called periodically during autonomous.
      */
     @Override
-    public void autonomousPeriodic() 
-    {
+    public void autonomousPeriodic() {
         Scheduler.getInstance().run();
     }
 
     @Override
-    public void teleopInit() 
-    {
+    public void teleopInit() {
         // This makes sure that the autonomous stops running when
         // teleop starts running. If you want the autonomous to
         // continue until interrupted by another command, remove
         // this line or comment it out.
-        if (autonomousCommand != null) 
-        {
+        if (autonomousCommand != null) {
             autonomousCommand.cancel();
         }
     }
@@ -118,8 +109,7 @@ public class Robot extends TimedRobot
      * This function is called periodically during operator control.
      */
     @Override
-    public void teleopPeriodic() 
-    {
+    public void teleopPeriodic() {
         Scheduler.getInstance().run();
     }
 
@@ -127,8 +117,7 @@ public class Robot extends TimedRobot
      * This function is called periodically during test mode.
      */
     @Override
-    public void testPeriodic() 
-    {
-        
+    public void testPeriodic() {
+
     }
 }
