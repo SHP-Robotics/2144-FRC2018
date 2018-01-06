@@ -7,6 +7,8 @@
 
 package frc.team2144;
 
+import edu.wpi.first.wpilibj.Joystick;
+
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
@@ -39,4 +41,19 @@ public class OI {
     // Start the command when the button is released and let it run the command
     // until it is finished as determined by it's isFinished method.
     // button.whenReleased(new ExampleCommand());
+
+    Joystick left = new Joystick(0);
+    Joystick right = new Joystick(1);
+
+    public double get_drive_x() {
+        return left.getX();
+    }
+
+    public double get_drive_y() {
+        return left.getY();
+    }
+
+    public double get_drive_rot() {
+        return left.getZ();
+    }
 }
