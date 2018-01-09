@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.team2144.commands.ExampleCommand;
 import frc.team2144.subsystems.Drivetrain;
+import frc.team2144.subsystems.Gyro;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -26,6 +27,7 @@ import frc.team2144.subsystems.Drivetrain;
 public class Robot extends TimedRobot {
 
     public static final Drivetrain drivetrain = new Drivetrain();
+    public static final Gyro gyro = new Gyro();
     public static OI oi;
 
     private Command autonomousCommand;
