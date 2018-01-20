@@ -1,7 +1,7 @@
 package frc.team2144.commands.auto;
 
 import frc.team2144.CommandBase;
-import frc.team2144.Robot;
+import frc.team2144.Constants;
 
 
 public class TurnDegrees extends CommandBase {
@@ -59,7 +59,7 @@ public class TurnDegrees extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
-        drivetrain.arcade(0, 0);
+        drivetrain.stop();
         drivetrain.reset_encoders();
     }
 

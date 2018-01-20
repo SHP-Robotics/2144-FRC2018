@@ -41,6 +41,37 @@ public class Drivetrain extends Subsystem {
         drive.driveCartesian(y, x, rot);
     }
 
+    /**
+     * Stops all drive motors.
+     */
+    public void stop() {
+        this.arcade(0, 0, false);
+    }
+
+    /**
+     * @param spd The speed to move at [-1.0..1.0]. Positive for forward.
+     * @param rot The speed to turn at [-1.0..1.0]. Positive for right.
+     */
+    public void arcade(double spd, double rot) {
+        this.arcade(spd, rot, false);
+    }
+
+    /**
+     * @param spd     The speed to move at [-1.0..1.0]. Positive for forward.
+     * @param rot     The speed to turn at [-1.0..1.0]. Positive for right.
+     * @param squared Whether to square the move and turn speeds for better precision.
+     */
+    public void arcade(double spd, double rot, boolean squared) {
+        drive.driveCartesian(squared ? spd * Math.abs(spd) : spd, 0, squared ? rot * Math.abs(rot) : rot);
+    }
+
+    public void reset_encoders() {
+        flenc.reset();
+        frenc.reset();
+        blenc.reset();
+        brenc.reset();
+    }
+
     public void initDefaultCommand() {
         setDefaultCommand(new GatorDrive());
     }
