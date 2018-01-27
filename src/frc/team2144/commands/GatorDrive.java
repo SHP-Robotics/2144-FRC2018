@@ -29,7 +29,10 @@ public class GatorDrive extends Command {
      */
     @Override
     protected void execute() {
-        drivetrain.mecanumCartesian(oi.get_drive_x(), oi.get_drive_y(), oi.get_drive_rot());
+        double x = (oi.get_left_x() + oi.get_right_x()) / 2;
+        double y = (oi.get_left_y() + oi.get_right_y()) / 2;
+        double rot = (oi.get_left_y() - oi.get_right_y()) / 2;
+        drivetrain.mecanumCartesian(x, y, rot); // tankanum drive
     }
 
 

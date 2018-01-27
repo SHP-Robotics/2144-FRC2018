@@ -42,18 +42,34 @@ public class OI {
     // until it is finished as determined by it's isFinished method.
     // button.whenReleased(new ExampleCommand());
 
-    Joystick left = new Joystick(0);
-    Joystick right = new Joystick(1);
+    private Joystick left = new Joystick(0);
+    private Joystick right = new Joystick(1);
 
-    public double get_drive_x() {
+    /**
+     * @return the X position of the left joystick. Right = positive.
+     */
+    public double get_left_x() {
         return left.getX();
     }
 
-    public double get_drive_y() {
-        return left.getY();
+    /**
+     * @return the Y position of the left joystick. Forward = positive.
+     */
+    public double get_left_y() {
+        return -left.getY();
     }
 
-    public double get_drive_rot() {
-        return left.getZ();
+    /**
+     * @return the X position of the right joystick. Right = positive.
+     */
+    public double get_right_x() {
+        return right.getX();
+    }
+
+    /**
+     * @return the Y position of the right joystick. Forward = positive.
+     */
+    public double get_right_y() {
+        return -right.getY();
     }
 }
