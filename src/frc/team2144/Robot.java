@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
+import frc.team2144.commands.auto.AutoDrive;
 import frc.team2144.commands.auto.SwitchCross;
 import frc.team2144.subsystems.Drivetrain;
 import frc.team2144.subsystems.Gyro;
@@ -78,12 +79,7 @@ public class Robot extends TimedRobot {
             autonomousCommand = new SwitchCross(1);
         }
 
-        /*
-         * String autoSelected = SmartDashboard.getString("Auto Selector",
-         * "Default"); switch(autoSelected) { case "My Auto": autonomousCommand
-         * = new MyAutoCommand(); break; case "Default Auto": default:
-         * autonomousCommand = new ExampleCommand(); break; }
-         */
+        // autonomousCommand = new AutoDrive(0.6, 72); // just cross line
 
         // schedule the autonomous command (example)
         if (autonomousCommand != null) {
