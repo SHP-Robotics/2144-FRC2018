@@ -7,12 +7,11 @@
 
 package frc.team2144;
 
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import frc.team2144.commands.ExampleCommand;
+import frc.team2144.commands.auto.SwitchCross;
 import frc.team2144.subsystems.Drivetrain;
 import frc.team2144.subsystems.Gyro;
 
@@ -31,7 +30,6 @@ public class Robot extends TimedRobot {
     public static OI oi;
 
     private Command autonomousCommand;
-    private SendableChooser<Command> chooser = new SendableChooser<>();
 
     /**
      * This function is run when the robot is first started up and should be
@@ -40,9 +38,6 @@ public class Robot extends TimedRobot {
     @Override
     public void robotInit() {
         oi = new OI();
-        chooser.addDefault("Default Auto", new ExampleCommand());
-        // chooser.addObject("My Auto", new MyAutoCommand());
-        SmartDashboard.putData("Auto mode", chooser);
     }
 
     /**
@@ -73,7 +68,15 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void autonomousInit() {
-        autonomousCommand = chooser.getSelected();
+        String gameData;
+        gameData = DriverStation.getInstance().getGameSpecificMessage();
+        if (gameData.charAt(0) == 'L') {
+            //Put left auto code here
+            autonomousCommand = new SwitchCross(-1);
+        } else {
+            //Put right auto code here
+            autonomousCommand = new SwitchCross(1);
+        }
 
         /*
          * String autoSelected = SmartDashboard.getString("Auto Selector",

@@ -72,6 +72,12 @@ public class Drivetrain extends Subsystem {
         brenc.reset();
     }
 
+    public boolean have_encoders_reached(int position) {
+        position = Math.abs(position);
+        return Math.abs(flenc.get()) >= position && Math.abs(frenc.get()) >= position &&
+                Math.abs(blenc.get()) >= position && Math.abs(brenc.get()) >= position;
+    }
+
     public void initDefaultCommand() {
         setDefaultCommand(new GatorDrive());
     }
