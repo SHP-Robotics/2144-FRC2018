@@ -8,4 +8,7 @@ public class Constants {
     public static final double K_DRIVE_DIA = 6; // drive wheel diameter
     public static final double K_DRIVE_CIR = Math.PI * K_DRIVE_DIA; // drive wheel circumference
     public static final double K_DRIVE_PPIN = K_DRIVE_PPR / K_DRIVE_CIR; // pulses per inch
+
+    public static final double intake_intake_spd = -1;
+    public static final double intake_output_spd = 1;
 }

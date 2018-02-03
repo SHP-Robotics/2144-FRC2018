@@ -72,4 +72,16 @@ public class OI {
     public double get_right_y() {
         return -right.getY();
     }
+
+    public boolean get_intake_pos() {
+        return right.getRawButton(ControlMap.intake_position);
+    }
+
+    public boolean get_intake() {
+        return right.getRawButton(ControlMap.intake_intake);
+    }
+
+    public boolean get_output() {
+        return left.getRawButton(ControlMap.intake_output);
+    }
 }

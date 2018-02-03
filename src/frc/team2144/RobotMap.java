@@ -28,4 +28,8 @@ public class RobotMap {
     public static final int br_drive_enc_port_a = 6;
     public static final int br_drive_enc_port_b = 7;
 
+    public static final int intake_up_sol = 1;
+    public static final int intake_down_sol = 0;
+
+    public static final int intake_motors_port = 4;
 }
