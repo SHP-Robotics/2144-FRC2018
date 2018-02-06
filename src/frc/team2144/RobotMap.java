@@ -14,11 +14,13 @@ package frc.team2144;
  * floating around.
  */
 public class RobotMap {
+    // PWM
     public static final int fl_drive_port = 0;
     public static final int fr_drive_port = 1;
     public static final int bl_drive_port = 2;
     public static final int br_drive_port = 3;
 
+    // DIO
     public static final int fl_drive_enc_port_a = 0;
     public static final int fl_drive_enc_port_b = 1;
     public static final int fr_drive_enc_port_a = 2;
@@ -28,8 +30,10 @@ public class RobotMap {
     public static final int br_drive_enc_port_a = 6;
     public static final int br_drive_enc_port_b = 7;
 
+    // PCM
     public static final int intake_up_sol = 1;
     public static final int intake_down_sol = 0;
 
+    // PWM
     public static final int intake_motors_port = 4;
 }
