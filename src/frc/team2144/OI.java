@@ -73,6 +73,13 @@ public class OI {
         return -right.getY();
     }
 
+    /**
+     * @return the Z rotation of the right joystick. Right = positive.
+     */
+    public double get_right_z() {
+        return right.getZ();
+    }
+
     public boolean get_intake_pos() {
         return right.getRawButton(ControlMap.intake_position);
     }
@@ -84,4 +91,6 @@ public class OI {
     public boolean get_output() {
         return left.getRawButton(ControlMap.intake_output);
     }
+
+
 }

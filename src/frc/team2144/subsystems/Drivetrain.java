@@ -38,7 +38,7 @@ public class Drivetrain extends Subsystem {
      * @param rot How fast to turn. Positive right.
      */
     public void mecanumCartesian(double x, double y, double rot) {
-        drive.driveCartesian(y, x, rot);
+        drive.driveCartesian(x, y, rot);
     }
 
     /**
