@@ -36,4 +36,6 @@ public class RobotMap {
 
     // PWM
     public static final int intake_motors_port = 4;
+    public static final int guide_motor_port = 5;
+    public static final int climb_motor_port = 6;
 }

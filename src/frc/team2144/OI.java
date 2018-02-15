@@ -92,5 +92,11 @@ public class OI {
         return left.getRawButton(ControlMap.intake_output);
     }
 
+    public double get_guide_power() {
+        return right.getRawButton(3) ? 1 : right.getRawButton(5) ? -1 : 0;
+    }
 
+    public double get_climb_power() {
+        return right.getRawButton(4) ? 1 : right.getRawButton(6) ? -1 : 0;
+    }
 }

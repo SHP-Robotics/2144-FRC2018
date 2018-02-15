@@ -1,6 +1,7 @@
 package frc.team2144.commands.auto;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
+import frc.team2144.Constants;
 
 
 public class SwitchCross extends CommandGroup {
@@ -24,12 +25,13 @@ public class SwitchCross extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the arm.
 
+        addSequential(new AutoIntakeDrive(true, 0));
         addSequential(new AutoDrive(0.5, 24)); // drive away from alliance wall
         addSequential(new TurnDegrees(0.5, position * 90)); // turn to right side
         addSequential(new AutoDrive(0.5, 48)); // drive to switch plate
         addSequential(new TurnDegrees(0.5, -position * 90)); // turn to face switch
         addSequential(new AutoDrive(0.5, 24)); // drive up to switch
-        // TODO: output cube
+        addSequential(new AutoIntakeDrive(true, Constants.intake_output_spd));
         // TODO: cross line
         // TODO: maybe use mechanum instead?
     }
