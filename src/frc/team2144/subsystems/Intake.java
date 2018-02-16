@@ -13,11 +13,12 @@ public class Intake extends Subsystem {
     // here. Call these from Commands.
 
     private DoubleSolenoid solenoid;
-    private Spark intakeMotors;
+    private Spark intake_a, intake_b;
 
     public Intake() {
         solenoid = new DoubleSolenoid(RobotMap.intake_up_sol, RobotMap.intake_down_sol);
-        intakeMotors = new Spark(RobotMap.intake_motors_port);
+        intake_a = new Spark(RobotMap.intake_motor_port_a);
+        intake_b = new Spark(RobotMap.intake_motor_port_b);
     }
 
     /**
@@ -35,7 +36,8 @@ public class Intake extends Subsystem {
      * @param spd The speed to run the intake motors at. Negative intakes.
      */
     public void runMotors(double spd) {
-        intakeMotors.set(spd);
+        intake_a.set(spd);
+        intake_b.set(spd);
     }
 
     public void initDefaultCommand() {

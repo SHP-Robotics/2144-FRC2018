@@ -42,6 +42,15 @@ public class Drivetrain extends Subsystem {
     }
 
     /**
+     * @param x   How fast to move sideways. Positive for right.
+     * @param y   How fast to move forward. Positive forward.
+     * @param rot How fast to turn. Positive right.
+     */
+    public void mecanumCartesian(double x, double y, double rot, double gyro) {
+        drive.driveCartesian(x, y, rot, gyro);
+    }
+
+    /**
      * Stops all drive motors.
      */
     public void stop() {
@@ -72,10 +81,14 @@ public class Drivetrain extends Subsystem {
         brenc.reset();
     }
 
+    public double average_encoders() {
+        return (Math.abs(flenc.get()) + Math.abs(frenc.get()) + Math.abs(blenc.get()) + Math.abs(brenc.get())) / 4;
+    }
+
     public boolean have_encoders_reached(int position) {
         position = Math.abs(position);
-        return Math.abs(flenc.get()) >= position && Math.abs(frenc.get()) >= position &&
-                Math.abs(blenc.get()) >= position && Math.abs(brenc.get()) >= position;
+        double avg = (Math.abs(flenc.get()) + Math.abs(frenc.get()) + Math.abs(blenc.get()) + Math.abs(brenc.get())) / 4;
+        return avg >= position;
     }
 
     public void initDefaultCommand() {
