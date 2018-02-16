@@ -75,7 +75,7 @@ public class AutoFODDrive extends CommandBase {
         }
 
         double yaw = gyro.getOrientation(); // godsdang it, hardware
-        drivetrain.mecanumCartesian(-x, -y, turnError, yaw); // what
+        drivetrain.mecanumCartesian(x, y, turnError, yaw); // what
     }
 
     // Make this return true when this Command no longer needs to run execute()
