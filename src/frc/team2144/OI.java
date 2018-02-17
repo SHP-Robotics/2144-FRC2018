@@ -93,10 +93,10 @@ public class OI {
     }
 
     public double get_guide_power() {
-        return right.getRawButton(3) ? 1 : right.getRawButton(5) ? -1 : 0;
+        return right.getRawButton(6) || right.getRawButton(3) ? 1 : right.getRawButton(5) ? -1 : 0;
     }
 
     public double get_climb_power() {
-        return right.getRawButton(4) ? 1 : right.getRawButton(6) ? -1 : 0;
+        return right.getRawButton(4) ? 1 : right.getRawButton(6) || right.getRawButton(7) ? -1 : 0;
     }
 }

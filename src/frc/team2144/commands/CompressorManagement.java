@@ -1,15 +1,12 @@
 package frc.team2144.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import frc.team2144.CommandBase;
 
-import static frc.team2144.Robot.drivetrain;
-import static frc.team2144.Robot.oi;
 
-public class GatorDrive extends Command {
-    public GatorDrive() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
-        requires(drivetrain);
+public class CompressorManagement extends CommandBase {
+    public CompressorManagement() {
+        requires(electronics);
     }
 
 
@@ -29,10 +26,11 @@ public class GatorDrive extends Command {
      */
     @Override
     protected void execute() {
-        double x = oi.get_right_x();
-        double y = -(oi.get_left_y() + oi.get_right_y()) / 2;
-        double rot = (oi.get_left_y() - oi.get_right_y()) / 2;
-        drivetrain.mecanumCartesian(x, y, rot); // tankanum drive
+        if (oi.get_climb_power() > 0 || electronics.pdp.getVoltage() < 11.0) {
+            electronics.compressor.stop();
+        } else if (!electronics.compressor.getClosedLoopControl()) {
+            electronics.compressor.start();
+        }
     }
 
 
@@ -55,7 +53,6 @@ public class GatorDrive extends Command {
      */
     @Override
     protected boolean isFinished() {
-        // TODO: Make this return true when this Command no longer needs to run execute()
         return false;
     }
 

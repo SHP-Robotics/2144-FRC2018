@@ -15,7 +15,7 @@ public class Drivetrain extends Subsystem {
     // here. Call these from Commands.
     private Spark fl, fr, bl, br;
     private Encoder flenc, frenc, blenc, brenc;
-    private MecanumDrive drive;
+    public MecanumDrive drive;
 
     /**
      * Constructs a Drivetrain using port constants found in RobotMap.

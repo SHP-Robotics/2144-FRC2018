@@ -12,10 +12,7 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import frc.team2144.commands.auto.SwitchCross;
-import frc.team2144.subsystems.Climber;
-import frc.team2144.subsystems.Drivetrain;
-import frc.team2144.subsystems.Gyro;
-import frc.team2144.subsystems.Intake;
+import frc.team2144.subsystems.*;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -31,6 +28,7 @@ public class Robot extends TimedRobot {
     public static final Gyro gyro = new Gyro();
     public static final Intake intake = new Intake();
     public static final Climber climber = new Climber();
+    public static final Electronics electronics = new Electronics();
     public static OI oi;
 
     private Command autonomousCommand;
