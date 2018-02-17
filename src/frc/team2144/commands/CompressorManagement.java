@@ -26,7 +26,7 @@ public class CompressorManagement extends CommandBase {
      */
     @Override
     protected void execute() {
-        if (oi.get_climb_power() > 0 || electronics.pdp.getVoltage() < 11.0) {
+        if (oi.get_climb_power() > 0) {
             electronics.compressor.stop();
         } else if (!electronics.compressor.getClosedLoopControl()) {
             electronics.compressor.start();

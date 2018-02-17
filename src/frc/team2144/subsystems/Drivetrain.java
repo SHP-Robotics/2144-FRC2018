@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.MecanumDrive;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.team2144.RobotMap;
 import frc.team2144.commands.GatorDrive;
 
@@ -71,7 +72,7 @@ public class Drivetrain extends Subsystem {
      * @param squared Whether to square the move and turn speeds for better precision.
      */
     public void arcade(double spd, double rot, boolean squared) {
-        drive.driveCartesian(squared ? spd * Math.abs(spd) : spd, 0, squared ? rot * Math.abs(rot) : rot);
+        drive.driveCartesian(0, squared ? spd * Math.abs(spd) : spd, squared ? rot * Math.abs(rot) : rot);
     }
 
     public void reset_encoders() {
@@ -83,6 +84,13 @@ public class Drivetrain extends Subsystem {
 
     public double average_encoders() {
         return (Math.abs(flenc.get()) + Math.abs(frenc.get()) + Math.abs(blenc.get()) + Math.abs(brenc.get())) / 4;
+    }
+
+    public void updateEncoderData() {
+        SmartDashboard.putNumber("flenc", flenc.get());
+        SmartDashboard.putNumber("frenc", frenc.get());
+        SmartDashboard.putNumber("blenc", blenc.get());
+        SmartDashboard.putNumber("brenc", brenc.get());
     }
 
     public boolean have_encoders_reached(int position) {
