@@ -16,6 +16,7 @@ public class Gyro extends Subsystem {
     }
 
     public double getOrientation() {
+//        SmartDashboard.putNumber("gyro", navx.getAngle());
         return navx.getAngle();
     }
 

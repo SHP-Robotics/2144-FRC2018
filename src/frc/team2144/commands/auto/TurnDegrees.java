@@ -44,10 +44,15 @@ public class TurnDegrees extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        double spd = speed;
+        if (gyro.getOrientation() > angle - Constants.K_TURN_SLOW_TOLERANCE
+                && gyro.getOrientation() < angle + Constants.K_TURN_SLOW_TOLERANCE) {
+            spd = Constants.K_TURN_SLOW_SPD;
+        }
         if (gyro.getOrientation() < normalizeAngle(angle + 180) && gyro.getOrientation() > normalizeAngle(angle)) {
-            drivetrain.arcade(0, speed, false);
+            drivetrain.arcade(0, spd, false);
         } else {
-            drivetrain.arcade(0, -speed, false);
+            drivetrain.arcade(0, -spd, false);
         }
     }
 

@@ -26,9 +26,9 @@ public class Intake extends Subsystem {
      */
     public void setUp(boolean whether_to_be_up) {
         if (whether_to_be_up) {
-            solenoid.set(DoubleSolenoid.Value.kReverse);
-        } else {
             solenoid.set(DoubleSolenoid.Value.kForward);
+        } else {
+            solenoid.set(DoubleSolenoid.Value.kReverse);
         }
     }
 

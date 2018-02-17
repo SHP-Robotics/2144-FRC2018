@@ -81,7 +81,7 @@ public class OI {
     }
 
     public boolean get_intake_pos() {
-        return right.getRawButton(ControlMap.intake_position);
+        return !right.getRawButton(ControlMap.intake_position);
     }
 
     public boolean get_intake() {
@@ -93,7 +93,7 @@ public class OI {
     }
 
     public double get_guide_power() {
-        return right.getRawButton(6) || right.getRawButton(3) ? 1 : right.getRawButton(5) ? -1 : 0;
+        return right.getRawButton(6) || right.getRawButton(3) ? 0.5 : right.getRawButton(5) ? -1 : 0;
     }
 
     public double get_climb_power() {

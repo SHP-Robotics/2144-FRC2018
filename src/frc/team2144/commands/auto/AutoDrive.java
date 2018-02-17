@@ -24,7 +24,7 @@ public class AutoDrive extends CommandBase {
     protected void initialize() {
         drivetrain.reset_encoders();
         gyro.resetOrientation();
-        drivetrain.arcade(speed, 0, false);
+        drivetrain.arcade(-speed, 0, false);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -35,7 +35,7 @@ public class AutoDrive extends CommandBase {
         } else if (error < -1) {
             error = -1;
         }
-        drivetrain.arcade(speed, error, false);
+        drivetrain.arcade(-speed, -error, false);
     }
 
     // Make this return true when this Command no longer needs to run execute()
