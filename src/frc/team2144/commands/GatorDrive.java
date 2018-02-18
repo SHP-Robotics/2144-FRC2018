@@ -33,7 +33,7 @@ public class GatorDrive extends Command {
         double y = -(oi.get_left_y() + oi.get_right_y()) / 2;
         double rot = (oi.get_left_y() - oi.get_right_y()) / 2;
         drivetrain.mecanumCartesian(x, y, rot); // tankanum drive
-        // drivetrain.updateEncoderData();
+        drivetrain.updateEncoderData();
     }
 
 

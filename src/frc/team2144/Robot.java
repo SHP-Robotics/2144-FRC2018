@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import frc.team2144.commands.auto.SwitchCross;
+import frc.team2144.commands.auto.ThreeCubeAuto;
 import frc.team2144.subsystems.*;
 
 /**
@@ -74,10 +75,10 @@ public class Robot extends TimedRobot {
         gameData = DriverStation.getInstance().getGameSpecificMessage();
         if (gameData.charAt(0) == 'L') {
             //Put left auto code here
-            autonomousCommand = new SwitchCross(-1);
+            autonomousCommand = new ThreeCubeAuto(-1);
         } else {
             //Put right auto code here
-            autonomousCommand = new SwitchCross(1);
+            autonomousCommand = new ThreeCubeAuto(1);
         }
 
         // autonomousCommand = new AutoDrive(0.6, 72); // just cross line

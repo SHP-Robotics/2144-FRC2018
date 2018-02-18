@@ -59,7 +59,9 @@ public class AutoFODDrive extends CommandBase {
         // System.out.println("DEBUG - nyoomError = " + nyoomError);
         // System.out.println("DEBUG - Aenc = " +
         // drivetrain.average_encoders());
-        nyoomError = nyoomError > nyoomSpeed ? nyoomSpeed : nyoomError < -nyoomSpeed ? -nyoomSpeed : nyoomError;
+//        nyoomError = nyoomError > nyoomSpeed ? nyoomSpeed : nyoomError < -nyoomSpeed ? -nyoomSpeed : nyoomError;
+
+        nyoomError = nyoomSpeed;
 
         turnComplete = normalizeAngle(gyro.getOrientation()) > turnAngle - Constants.K_TURN_TOLERANCE
                 && normalizeAngle(gyro.getOrientation()) < turnAngle + Constants.K_TURN_TOLERANCE;
@@ -75,7 +77,7 @@ public class AutoFODDrive extends CommandBase {
         }
 
         double yaw = gyro.getOrientation(); // godsdang it, hardware
-        drivetrain.mecanumCartesian(x, y, turnError, yaw); // what
+        drivetrain.mecanumCartesian(-x, y, turnError, yaw); // what
     }
 
     // Make this return true when this Command no longer needs to run execute()

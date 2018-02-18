@@ -35,7 +35,7 @@ public class AutoMecanumDrive extends CommandBase {
         } else if (error < -1) {
             error = -1;
         }
-        drivetrain.mecanumCartesian(x, y, error);
+        drivetrain.mecanumCartesian(x, -y, -error);
     }
 
     // Make this return true when this Command no longer needs to run execute()

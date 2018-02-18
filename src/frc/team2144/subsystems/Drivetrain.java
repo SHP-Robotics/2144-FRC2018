@@ -83,7 +83,7 @@ public class Drivetrain extends Subsystem {
     }
 
     public double average_encoders() {
-        return (Math.abs(flenc.get()) + Math.abs(frenc.get()) + Math.abs(blenc.get()) + Math.abs(brenc.get())) / 4;
+        return (Math.abs(flenc.get()) + Math.abs(frenc.get()) + /*Math.abs(blenc.get()) +*/ Math.abs(brenc.get())) / 4;
     }
 
     public void updateEncoderData() {
@@ -95,7 +95,7 @@ public class Drivetrain extends Subsystem {
 
     public boolean have_encoders_reached(int position) {
         position = Math.abs(position);
-        double avg = (Math.abs(flenc.get()) + Math.abs(frenc.get()) + Math.abs(blenc.get()) + Math.abs(brenc.get())) / 4;
+        double avg = average_encoders();
         return avg >= position;
     }
 
