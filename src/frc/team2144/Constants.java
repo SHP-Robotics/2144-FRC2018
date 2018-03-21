@@ -13,4 +13,13 @@ public class Constants {
 
     public static final double intake_intake_spd = -1;
     public static final double intake_output_spd = 1;
+
+    public static final double K_DRIVE_P = 1;
+    public static final double K_DRIVE_I = 1;
+    public static final double K_DRIVE_D = 1;
+
+    public static final double K_TURN_P = 1;
+    public static final double K_TURN_I = 1;
+    public static final double K_TURN_D = 1;
+
 }

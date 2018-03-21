@@ -2,7 +2,6 @@ package frc.team2144.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.team2144.CommandBase;
-import frc.team2144.ControlMap;
 
 
 public class ClimberDrive extends CommandBase {
