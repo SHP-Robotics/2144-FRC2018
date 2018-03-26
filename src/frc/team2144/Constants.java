@@ -18,8 +18,8 @@ public class Constants {
     public static final double K_DRIVE_I = 1;
     public static final double K_DRIVE_D = 1;
 
-    public static final double K_TURN_P = 1;
-    public static final double K_TURN_I = 1;
-    public static final double K_TURN_D = 1;
+    public static final double K_TURN_P = 0.5;
+    public static final double K_TURN_I = 0.1;
+    public static final double K_TURN_D = 0.1;
 
 }
