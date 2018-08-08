@@ -14,6 +14,9 @@ public class OneCubeAuto extends CommandGroup {
      * @param position the position of the alliance switch. -1 for left, 1 for right.
      */
     public OneCubeAuto(int position) {
+        // addSequential(new AutoDrive(0, 100), 3); // wait 3
+
+
         addSequential(new AutoIntakeDrive(false, 0)); // arm down
         addSequential(new AutoDrive(0.5, 6)); // drive forward and
         addSequential(new TurnDegrees(0.5, position * 48)); // turn to drive to switch

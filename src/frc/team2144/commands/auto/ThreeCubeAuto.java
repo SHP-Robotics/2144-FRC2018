@@ -23,9 +23,9 @@ public class ThreeCubeAuto extends CommandGroup {
         addSequential(new TurnDegrees(0.5, -position * (90 + 48))); // turn to plop cube
         addSequential(new AutoDrive(0.5, 20)); // drive up to switch
         addSequential(new AutoIntakeDrive(true, Constants.intake_output_spd)); // output cube and
-        addSequential(new AutoMecanumDrive(position * 1, -0.1, 105)); // mecanum towards other cubes
+        addSequential(new AutoMecanumDrive(position * 1, -0.1, 95)); // mecanum towards other cubes
         addSequential(new AutoIntakeDrive(false, Constants.intake_intake_spd)); // arms down, intake, and
-        addSequential(new AutoDrive(0.5, 18)); // move to grab cube
+        addSequential(new AutoDrive(0.5, 20)); // move to grab cube
         addSequential(new TurnDegrees(0.7, -position * 85)); // turn towards cube
         addSequential(new AutoDrive(0.4, 20), 2); // drive up to, intake cube (2)
         addSequential(new AutoDrive(-0.2, 5), 0.5);

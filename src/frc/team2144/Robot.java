@@ -7,10 +7,14 @@
 
 package frc.team2144;
 
+import edu.wpi.cscore.UsbCamera;
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
+import frc.team2144.commands.auto.AutoDrive;
+import frc.team2144.commands.auto.OneCubeAuto;
 import frc.team2144.commands.auto.ThreeCubeAuto;
 import frc.team2144.subsystems.*;
 
@@ -30,6 +34,7 @@ public class Robot extends TimedRobot {
     public static final Climber climber = new Climber();
     public static final Electronics electronics = new Electronics();
     public static OI oi;
+    public UsbCamera cam;
 
     private Command autonomousCommand;
 
@@ -40,6 +45,10 @@ public class Robot extends TimedRobot {
     @Override
     public void robotInit() {
         oi = new OI();
+        cam = CameraServer.getInstance().startAutomaticCapture();
+        cam.setResolution(160, 120);
+        cam.setFPS(15);
+        cam.setExposureManual(40);
     }
 
     /**
@@ -82,8 +91,9 @@ public class Robot extends TimedRobot {
         }
 
 
-        // autonomousCommand = new AutoDrive(0.6, 72); // just cross line
+        // autonomousCommand = new AutoDrive(0.6, 110); // just cross line
         // autonomousCommand = new AutoPIDTurn(1, 90, true); // for calibration
+        // autonomousCommand = new OneCubeAuto(gameData.charAt(0) == 'L' ? -1 : 1);
 
         // schedule the autonomous command (example)
         if (autonomousCommand != null) {

@@ -92,6 +92,11 @@ public class OI {
         return left.getRawButton(ControlMap.intake_output);
     }
 
+    public double get_intake_spd() {
+        // return get_intake() ? (right.getThrottle() + 1) / 2 : get_output() ? Constants.intake_output_spd : 0;
+        return get_intake() ? Constants.intake_intake_spd : get_output() ? Constants.intake_output_spd : 0;
+    }
+
     public double get_guide_power() {
         return right.getRawButton(6) || right.getRawButton(3) ? 0.5 : right.getRawButton(5) ? -1 : 0;
     }

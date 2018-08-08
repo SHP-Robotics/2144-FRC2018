@@ -28,7 +28,7 @@ public class IntakeDrive extends CommandBase {
     @Override
     protected void execute() {
         intake.setUp(oi.get_intake_pos());
-        intake.runMotors(oi.get_intake() ? Constants.intake_intake_spd : oi.get_output() ? Constants.intake_output_spd : 0);
+        intake.runMotors(oi.get_intake_spd());
     }
 
 
